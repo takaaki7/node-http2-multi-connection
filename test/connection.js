@@ -28,7 +28,7 @@ describe('connection.js', function() {
     describe('method ._insert(stream)', function() {
       it('should insert the stream in _streamPriorities in a place determined by stream._priority', function() {
         var streams = [];
-        var connection = Object.create(Connection.prototype, { _streamPriorities: { value: streams }});
+        var connection = Object.create(Connection.prototype, { _streamPriorities: { value: streams }, _log: { value: util.log}});
         var streamCount = 10;
 
         for (var i = 0; i < streamCount; i++) {

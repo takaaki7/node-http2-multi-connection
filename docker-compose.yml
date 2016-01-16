@@ -1,0 +1,20 @@
+client1:
+  build: .
+  tty: true
+  stdin_open: true
+  privileged: true
+  command: /client_start.sh /sources/experiment/client.js http://server1:8080 http://server1:8080
+  links:
+    - server1:server1
+server1:
+  build: .
+  command: /server_start.sh 0.1 /sources/experiment/server.js 8080
+  privileged: true
+  ports:
+    - "8080:8080"
+    - "8081:8081"
+    - "8082:8082"
+    - "8083:8083"
+    - "8084:8084"
+    - "8085:8085"
+  
